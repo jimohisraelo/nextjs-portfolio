@@ -1,26 +1,56 @@
 @import "tailwindcss";
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ===== Custom Variables ===== */
+@theme {
+  --color-accent: #2563eb;
+  --color-dark: #0f172a;
+  --color-darkAlt: #1e293b;
+  --color-light: #f8fafc;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", sans-serif;
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+
+:root[data-theme='dark'] body {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+
+.animated-bg {
+  background: linear-gradient(-45deg, #1a1a1a, #0e7490, #111827, var(--color-accent));
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+section {
+  padding-top: 5rem; /* 96px */
+  padding-bottom: 6rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+section + section {
+  margin-top: 0.1rem; /* 64px */
+}
+
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
