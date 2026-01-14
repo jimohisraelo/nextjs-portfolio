@@ -7,7 +7,7 @@ import "./styles/about-section.css";
 
 export default function AboutSection() {
   const stats = [
-    { icon: <Code2 size={32} />, value: "3+", label: "Years Experience" },
+    { icon: <Code2 size={32} />, value: "4+", label: "Years Experience" },
     { icon: <Briefcase size={32} />, value: "10+", label: "Projects Completed" },
     { icon: <Award size={32} />, value: "Full-Stack", label: "Developer" },
   ];
@@ -32,7 +32,7 @@ export default function AboutSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            I'm <strong>Jimoh Israel</strong>, a professional web developer
+            I&apos;m <strong>Jimoh Israel</strong>, a professional web developer
             focused on building clean, functional, and visually appealing
             digital experiences. I believe in simple, thoughtful design that
             solves real problems.
@@ -44,7 +44,7 @@ export default function AboutSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            I'm passionate about using modern tools and best practices to
+            I&apos;m passionate about using modern tools and best practices to
             deliver reliable and efficient results — always with an eye for
             detail and performance.
           </motion.p>
