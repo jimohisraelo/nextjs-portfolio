@@ -38,11 +38,11 @@ const projects: Project[] = [
     tags: ["Python", "Flask", "Machine Learning", "AI Chatbot"],
   },
   {
-    title: "Node.js Todo App",
+    title: "Wilf Africa Platform",
     description:
       "A full-stack Todo application built using Node.js, Express, MongoDB, and EJS. It features task creation, updating, and deletion with real-time rendering through EJS templates. I implemented backend routing, data modeling with Mongoose, and environment configuration using dotenv. This project demonstrates my ability to design and build complete CRUD applications with clean structure, dynamic views, and database integration.",
     image: "/images/todo.png",
-    link: "https://nodejs-todo-app-1-ga0k.onrender.com/",
+    link: "https://www.wiftafrica.org/",
     tags: ["Mongoose", "Node.js", "MongoDB", "EJS"],
   },
   {
