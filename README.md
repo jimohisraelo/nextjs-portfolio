@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jimoh Israel — Portfolio
 
-## Getting Started
+Personal portfolio site for Jimoh Israel, full-stack developer.
 
-First, run the development server:
+**Live:** https://nextjs-portfolio-blue-iota.vercel.app
+
+## Tech stack
+
+- [Next.js 15](https://nextjs.org) (App Router) + React 19 + TypeScript
+- [Tailwind CSS v4](https://tailwindcss.com) with class-based dark mode via `next-themes`
+- [Framer Motion](https://motion.dev) for scroll animations (respects "reduce motion")
+- [tsParticles](https://particles.js.org) for the hero background
+- [Formspree](https://formspree.io) for the contact form
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Editing content
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+All text, links, skills and projects live in **`src/data/portfolio.ts`** — you shouldn't need to touch the components to update the site.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Add a project:** add an entry to `projects` and put its screenshot in `public/images/`.
+- **Add a skill:** add an entry to `skills` (and an icon mapping in `src/components/SkillsSection.tsx` if it's a new technology).
+- **LinkedIn / CV:** set `profile.linkedin` and `profile.resume` — the links appear automatically once filled in.
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/          layout, page, metadata, favicon and social preview image
+  components/   one component per section + shared Section / Reveal helpers
+  data/         portfolio.ts — all site content
+public/images/  project screenshots
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Deployed on Vercel. Set `NEXT_PUBLIC_SITE_URL` if the site moves to a custom domain so social previews use the right URL.

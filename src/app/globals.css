@@ -1,56 +1,39 @@
 @import "tailwindcss";
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
 
-/* ===== Custom Variables ===== */
+/* Dark mode follows the `dark` class that next-themes puts on <html>. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
   --color-accent: #2563eb;
-  --color-dark: #0f172a;
-  --color-darkAlt: #1e293b;
-  --color-light: #f8fafc;
+  --color-accent-hover: #1d4ed8;
+  --color-accent-soft: #60a5fa;
+
+  /* CSS-only entrance animation for above-the-fold content: it runs before
+     JavaScript loads, so the hero is never blank on slow connections. */
+  --animate-fade-up: fade-up 0.6s ease-out both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
 
 html {
   scroll-behavior: smooth;
+  /* Keep anchored sections clear of the fixed navbar. */
+  scroll-padding-top: 4.5rem;
 }
 
-body {
-  font-family: "Inter", sans-serif;
-  background-color: var(--color-light);
-  color: var(--color-dark);
-}
-
-:root[data-theme='dark'] body {
-  background-color: var(--color-dark);
-  color: var(--color-light);
-}
-
-.animated-bg {
-  background: linear-gradient(-45deg, #1a1a1a, #0e7490, #111827, var(--color-accent));
-  background-size: 400% 400%;
-  animation: gradientShift 12s ease infinite;
-}
-
-section {
-  padding-top: 5rem; /* 96px */
-  padding-bottom: 6rem;
-  padding-right: 2rem;
-  padding-left: 2rem;
-}
-
-section + section {
-  margin-top: 0.1rem; /* 64px */
-}
-
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
