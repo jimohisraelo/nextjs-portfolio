@@ -34,7 +34,7 @@ export const about = {
     "I'm passionate about using modern tools and best practices to deliver reliable and efficient results — always with an eye for detail and performance.",
   ],
   stats: [
-    { value: "4+", label: "Years experience" },
+    { value: "6+", label: "Years coding" },
     { value: "10+", label: "Projects completed" },
     { value: "Full-Stack", label: "Front-end to back-end" },
   ],
@@ -83,6 +83,22 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    title: "Ojarun Grocery Marketplace",
+    description:
+      "A Nigerian grocery platform shopped on the web or over WhatsApp. I built the rewards and referral system, an AI shopping assistant, customer accounts and a synced cart, and closed price-tampering and fraud loopholes.",
+    image: "/images/ojarun.jpg",
+    tags: ["Next.js", "TypeScript", "NestJS", "Prisma", "WhatsApp API"],
+    live: "https://ojarun.com",
+  },
+  {
+    title: "Blazing Torrent (Stanford Seed Alumni)",
+    description:
+      "A private networking and deal-room platform for Stanford Seed Transformation Program alumni. I built the whole backend: 80+ REST endpoints, a real-time WebSocket chat server and the admin backoffice.",
+    image: "/images/blazing.jpg",
+    tags: ["PHP", "CodeIgniter 4", "MySQL", "WebSockets", "JWT"],
+    live: "https://www.blazingtorrent.org",
+  },
   {
     title: "WIFT Africa Platform",
     description:
