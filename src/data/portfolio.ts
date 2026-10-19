@@ -102,9 +102,9 @@ export const projects: Project[] = [
   {
     title: "WIFT Africa Platform",
     description:
-      "Built at Unleashified: the backend for a pan-African network of women in film and television — membership, profiles, events and mentorship, with RESTful APIs, JWT auth and role-based access control.",
+      "Built at Unleashified: backend for a networking and portfolio platform for women in film and TV across Africa — authentication, professional profiles, multi-step chapter onboarding, messaging, posts and connections.",
     image: "/images/wilf.png",
-    tags: ["MongoDB", "Express.js", "React", "Node.js"],
+    tags: ["Node.js", "Express.js", "TypeScript", "MongoDB", "Zod"],
     live: "https://www.wiftafrica.org/",
   },
   {
