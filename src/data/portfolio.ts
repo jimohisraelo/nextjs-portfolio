@@ -16,9 +16,8 @@ export const profile = {
   github: "https://github.com/jimohisraelo",
   // Add your LinkedIn profile URL to show it in the footer and contact section.
   linkedin: "",
-  // Put your CV in /public (e.g. /public/Jimoh-Israel-CV.pdf) and set the path here
-  // to show a "Download CV" button in the hero.
-  resume: "",
+  // CV file in /public; shows a "Download CV" button in the hero. Set to "" to hide it.
+  resume: "/Jimoh-Israel-CV.pdf",
   formspreeEndpoint: "https://formspree.io/f/mjkabkdg",
 };
 
@@ -87,11 +86,10 @@ export const projects: Project[] = [
   {
     title: "WIFT Africa Platform",
     description:
-      "Backend for a pan-African network of women in film and television: membership, profiles, events and mentorship, with RESTful APIs, JWT auth and role-based access control.",
+      "Built at Unleashified: the backend for a pan-African network of women in film and television — membership, profiles, events and mentorship, with RESTful APIs, JWT auth and role-based access control.",
     image: "/images/wilf.png",
-    tags: ["Node.js", "MongoDB", "Mongoose", "EJS", "Next.js"],
+    tags: ["MongoDB", "Express.js", "React", "Node.js"],
     live: "https://www.wiftafrica.org/",
-    source: "https://github.com/jimohisraelo/wilfafrica_backend",
   },
   {
     title: "Sage Clothing Brand",
