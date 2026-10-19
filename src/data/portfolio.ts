@@ -22,10 +22,11 @@ export const profile = {
 };
 
 export const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  // Root-relative so the links also work from case study pages.
+  { label: "About", href: "/#about" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export const about = {
@@ -80,6 +81,8 @@ export interface Project {
   tags: string[];
   live: string;
   source?: string;
+  /** Slug of an entry in `caseStudies`; adds a "Case study" link to the card. */
+  caseStudy?: string;
 }
 
 export const projects: Project[] = [
@@ -90,6 +93,7 @@ export const projects: Project[] = [
     image: "/images/ojarun.jpg",
     tags: ["Next.js", "TypeScript", "NestJS", "Prisma", "WhatsApp API"],
     live: "https://ojarun.com",
+    caseStudy: "ojarun",
   },
   {
     title: "Blazing Torrent (Stanford Seed Alumni)",
@@ -98,6 +102,7 @@ export const projects: Project[] = [
     image: "/images/blazing.jpg",
     tags: ["PHP", "CodeIgniter 4", "MySQL", "WebSockets", "JWT"],
     live: "https://www.blazingtorrent.org",
+    caseStudy: "blazing-torrent",
   },
   {
     title: "WIFT Africa Platform",
@@ -149,5 +154,140 @@ export const projects: Project[] = [
     tags: ["Python", "Flask", "JavaScript", "Bootstrap"],
     live: "https://flask-trivia-game.vercel.app/",
     source: "https://github.com/jimohisraelo/Flask-Trivia-Game",
+  },
+];
+
+export interface CaseStudy {
+  slug: string;
+  title: string;
+  summary: string;
+  image: string;
+  imageAlt: string;
+  role: string;
+  team: string;
+  stack: string[];
+  links: { label: string; href: string }[];
+  stats: { value: string; label: string }[];
+  challenge: string[];
+  built: { title: string; points: string[] }[];
+  highlights: { title: string; points: string[] };
+}
+
+export const caseStudies: CaseStudy[] = [
+  {
+    slug: "ojarun",
+    title: "Ojarun Grocery Marketplace",
+    summary:
+      "An online grocery and food marketplace that brings Nigerian local markets to the customer's doorstep, shopped through a web storefront or directly over WhatsApp.",
+    image: "/images/ojarun.jpg",
+    imageAlt: "Ojarun home page: Bringing the Market to Your Doorstep",
+    role: "Full-stack developer",
+    team: "5 contributors · top committer on the web app",
+    stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "NestJS", "Prisma", "WhatsApp Cloud API", "Cloudinary", "Vercel"],
+    links: [{ label: "ojarun.com", href: "https://ojarun.com" }],
+    stats: [
+      { value: "64", label: "Web-app commits, the most on the team" },
+      { value: "8", label: "Product features shipped end to end" },
+      { value: "118/119", label: "Products given photos" },
+      { value: "10", label: "Catalogue categories" },
+    ],
+    challenge: [
+      "Ojarun lets customers order fresh food from local markets, sourced by trained agents and delivered to their door. Customers can shop on the website or entirely over WhatsApp, so the experience had to work well in both places.",
+      "The product needed the features that bring customers back — accounts, rewards, referrals and reviews — and it had to be safe to run with real money and real promotions.",
+    ],
+    built: [
+      {
+        title: "Customer accounts",
+        points: [
+          "Login, password reset, profile editing, saved delivery addresses and account deactivation.",
+          "A server-synced cart, so a basket started on one device is waiting on another.",
+        ],
+      },
+      {
+        title: "Rewards and referrals",
+        points: [
+          "Loyalty points with Bronze, Silver and Gold tiers.",
+          "Refer-and-earn and a promo-code engine for campaigns.",
+        ],
+      },
+      {
+        title: "AI shopping assistant",
+        points: [
+          "A chat widget where customers paste their shopping list and the assistant turns it into real products in the cart.",
+        ],
+      },
+      {
+        title: "Engagement and catalogue",
+        points: [
+          "Order ratings and reviews, notifications and meal favourites.",
+          "Loaded product photos for 118 of 119 products across 10 categories.",
+          "Turned Figma designs into responsive pages.",
+          "Fixed mobile overflow bugs across the cart, checkout and marketplace pages.",
+        ],
+      },
+    ],
+    highlights: {
+      title: "Security fixes",
+      points: [
+        "The server now re-prices every order, so a customer can't change prices in the browser before checkout.",
+        "Closed a loophole that let the rewards system be abused for free points.",
+        "Added rate limiting to the public AI chat API to stop abuse.",
+      ],
+    },
+  },
+  {
+    slug: "blazing-torrent",
+    title: "Blazing Torrent — Stanford Seed Alumni Platform",
+    summary:
+      "A private networking and business-exchange platform for graduates of the Stanford Seed Transformation Program (STP) in Africa — think LinkedIn meets a deal room, for a closed community.",
+    image: "/images/blazing.jpg",
+    imageAlt: "Blazing Torrent home page: Stay Connected. Grow Together.",
+    role: "Backend developer — built the entire REST API and infrastructure",
+    team: "Me on backend, with a frontend developer and a mobile/media developer",
+    stack: ["PHP", "CodeIgniter 4 (HMVC)", "MySQL", "Ratchet WebSocket", "JWT", "PHPMailer", "Bluehost", "Azure VM"],
+    links: [
+      { label: "blazingtorrent.org", href: "https://www.blazingtorrent.org" },
+      { label: "api.blazingtorrent.org", href: "https://api.blazingtorrent.org" },
+    ],
+    stats: [
+      { value: "80+", label: "REST API endpoints" },
+      { value: "30+", label: "API modules" },
+      { value: "36", label: "Database tables" },
+      { value: "120+", label: "Registered users on the live platform" },
+    ],
+    challenge: [
+      "Stanford Seed alumni needed one private place to connect, find mentors, run events and do business with each other — not a public social network.",
+      "That meant a large, secure API behind web and mobile apps, real-time chat, and tools for administrators to run the community.",
+    ],
+    built: [
+      {
+        title: "The full REST API",
+        points: [
+          "30+ modules and 80+ endpoints: authentication, profiles, connections, events, groups, deal rooms, messaging, resources, newsfeed and marketplace.",
+          "A 36-table MySQL schema, JWT authentication, and uploads of images, video and documents up to 100MB.",
+        ],
+      },
+      {
+        title: "Real-time messaging",
+        points: [
+          "A WebSocket server (Ratchet, on an Azure VM) for live messages and online/offline presence.",
+          "In-app notifications for connection requests, likes, comments and event updates.",
+        ],
+      },
+      {
+        title: "Admin backoffice",
+        points: [
+          "User management, an analytics dashboard, post moderation, an email dispatcher and a support inbox.",
+        ],
+      },
+    ],
+    highlights: {
+      title: "Zero-downtime migration",
+      points: [
+        "Moved the platform from Azure to Bluehost without taking it offline.",
+        "Fixed what broke on the new host: CORS, file uploads, path configuration and PHP limits.",
+        "Kept the WebSocket server on Azure so live chat kept working.",
+      ],
+    },
   },
 ];

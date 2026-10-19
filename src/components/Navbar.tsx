@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { navLinks, profile } from "@/data/portfolio";
@@ -32,10 +33,10 @@ export default function Navbar() {
       }`}
     >
       <nav aria-label="Main" className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <a href="#" className="text-lg font-bold tracking-tight" onClick={() => setOpen(false)}>
+        <Link href="/" className="text-lg font-bold tracking-tight" onClick={() => setOpen(false)}>
           {profile.shortName}
           <span className="text-accent">.</span>
-        </a>
+        </Link>
 
         <div className="flex items-center gap-1">
           <ul className="hidden items-center gap-1 md:flex">

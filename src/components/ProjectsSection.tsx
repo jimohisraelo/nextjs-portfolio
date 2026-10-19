@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { BookOpen, ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { projects } from "@/data/portfolio";
 import Section from "./Section";
@@ -44,7 +45,16 @@ export default function ProjectsSection() {
                   ))}
                 </ul>
 
-                <div className="mt-6 flex items-center gap-5 text-sm font-semibold">
+                <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm font-semibold">
+                  {project.caseStudy && (
+                    <Link
+                      href={`/projects/${project.caseStudy}`}
+                      className="inline-flex items-center gap-1.5 rounded-full bg-accent px-4 py-2 text-white transition hover:bg-accent-hover"
+                    >
+                      <BookOpen size={15} aria-hidden /> Case study
+                      <span className="sr-only">: {project.title}</span>
+                    </Link>
+                  )}
                   <a
                     href={project.live}
                     target="_blank"
