@@ -107,10 +107,11 @@ export const projects: Project[] = [
   {
     title: "WIFT Africa Platform",
     description:
-      "Built at Unleashified: backend for a networking and portfolio platform for women in film and TV across Africa — authentication, professional profiles, multi-step chapter onboarding, messaging, posts and connections.",
+      "At Unleashified: took the Node.js API for a networking platform for women in film and TV across Africa to production — Azure deployment through GitHub Actions, a production build setup, working email delivery and live API docs.",
     image: "/images/wilf.png",
-    tags: ["Node.js", "Express.js", "TypeScript", "MongoDB", "Zod"],
+    tags: ["Node.js", "TypeScript", "Express.js", "Azure", "GitHub Actions"],
     live: "https://www.wiftafrica.org/",
+    caseStudy: "wift-africa",
   },
   {
     title: "Sage Clothing Brand",
@@ -287,6 +288,57 @@ export const caseStudies: CaseStudy[] = [
         "Moved the platform from Azure to Bluehost without taking it offline.",
         "Fixed what broke on the new host: CORS, file uploads, path configuration and PHP limits.",
         "Kept the WebSocket server on Azure so live chat kept working.",
+      ],
+    },
+  },
+  {
+    slug: "wift-africa",
+    title: "WIFT Africa — Taking the API to Production",
+    summary:
+      "WIFT Africa is a networking and portfolio platform for women in film and television across Africa. At Unleashified I took its Node.js backend from a project that ran on a laptop to a live API on Azure.",
+    image: "/images/wilf.png",
+    imageAlt: "WIFT Africa home page",
+    role: "Backend developer — deployment and production setup",
+    team: "Unleashified backend team · a teammate built the feature modules",
+    stack: ["Node.js", "Express 5", "TypeScript", "MongoDB", "Zod", "Swagger", "GitHub Actions", "Azure App Service"],
+    links: [{ label: "wiftafrica.org", href: "https://www.wiftafrica.org/" }],
+    stats: [
+      { value: "70+", label: "API routes taken live" },
+      { value: "25", label: "Commits to the backend" },
+      { value: "1", label: "Push-to-deploy pipeline on Azure" },
+      { value: "3", label: "Production blockers fixed" },
+    ],
+    challenge: [
+      "The API's features — authentication, five-step onboarding, profiles, chapters, messaging and posts — worked locally, but the project had never run in production.",
+      "Getting it live meant a build that starts correctly from compiled JavaScript, an automated deployment to Azure, and services like email and API docs that work outside a developer's machine.",
+    ],
+    built: [
+      {
+        title: "Automated deployment",
+        points: [
+          "A GitHub Actions workflow that builds the TypeScript API on every push to main and deploys it to an Azure App Service slot.",
+        ],
+      },
+      {
+        title: "A production build that starts",
+        points: [
+          "Reworked the entry point into a server that mounts the API app, and aligned tsconfig and the package start script so the compiled build boots on Azure.",
+          "Added a status page and a versioned API index listing the available endpoints, alongside the health check.",
+        ],
+      },
+      {
+        title: "Working email",
+        points: [
+          "Email was hard-wired to SendGrid and the app refused to start without its keys. I moved delivery to an HTTP email API, made the SendGrid settings optional, and added a mock mode for local development.",
+        ],
+      },
+    ],
+    highlights: {
+      title: "Production blockers fixed",
+      points: [
+        "The server wouldn't start from the compiled build until the entry point and build paths were fixed.",
+        "Verification and onboarding emails failed outside development until the email service was replaced.",
+        "Swagger docs were empty in production because they only scanned the TypeScript sources; they now read the compiled routes too.",
       ],
     },
   },
